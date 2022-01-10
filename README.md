@@ -26,11 +26,11 @@
 
 - lms `node(중요)`에 들어가서 `f12` 버튼을 눌러 아래 창을 열고 console이라 적힌 섹션을 연다 (노란색 표시)
 
-![devtools](.\img\Devtools.PNG)
+![devtools](./img/Devtools.PNG)
 
 - 그리고 해당 github의 code.js의 있는 코드를 복사하여 아래와 같이 넣는다.
 
-![devtools2](.\img\Devtools2.PNG)
+![devtools2](./img/Devtools2.PNG)
 
 - 엔터를 치면 테마를 적용시킨다
 
@@ -41,7 +41,7 @@
 - 단 마지막 `monokai`라고 적은 부분은 `html` 의 `head`태그에서 `link`태그를 추가해야 codemirror의 색이 바뀌기 때문에 필자가 좋아 하는 테마 `dracula`, `monokai` 라는 선택지 밖에없다.
 
 - 색상표 (공식 Dracula theme의 컬러를 사용하였습니다)
-  ![colorHex](.\img\ColorHex.png)
+  ![colorHex](./img/ColorHex.png)
 
 ## 한계
 
