@@ -19,7 +19,8 @@ setInterval(() => {
   const remoteDiv = document.querySelector('.stepMain__btn-inner');
   const codeBackTick = document.querySelectorAll('code');
   const header = document.querySelector('.ant-layout-header');
-  const blockquoteString = document.querySelectorAll('blockquote>p');
+  const blockquoteString = document.querySelectorAll('blockquote p');
+  const blockquoteLi = document.querySelectorAll('blockquote li');
   const codeMirror = document.querySelectorAll(
     '.CodeMirror ,cm-s-github-light'
   );
@@ -56,6 +57,7 @@ setInterval(() => {
   ) {
     rotateBackground(sideDiv, Background);
     rotateColor(blockquoteString, Foreground);
+    rotateColor(blockquoteLi, Foreground);
     rotateColor(codeMirrorIcon, Foreground);
     rotateClassName(codeMirror, `CodeMirror cm-s-${theme}`);
     rotateColor(linkTag, Foreground);
