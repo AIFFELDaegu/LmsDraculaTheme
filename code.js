@@ -14,7 +14,8 @@ setInterval(() => {
   const sideDiv = document.querySelectorAll('.lightBack');
   const contentDiv = document.querySelector('.stepMain__body');
   const contentDivHead = document.querySelector('h1');
-  const linkTag = document.querySelectorAll('a');
+  const linkTag = document.querySelectorAll('.setpMain_content a');
+  const contentLinkTag = document.querySelectorAll('.stepMain__content a');
   const nodeListIndex = document.querySelectorAll('.list-item>.title');
   const remoteDiv = document.querySelector('.stepMain__btn-inner');
   const codeBackTick = document.querySelectorAll('code');
@@ -61,6 +62,7 @@ setInterval(() => {
     rotateColor(codeMirrorIcon, Foreground);
     rotateClassName(codeMirror, `CodeMirror cm-s-${theme}`);
     rotateColor(linkTag, Foreground);
+    rotateColor(contentLinkTag, accent);
     rotateBackground(codeMirrorButtonBlock, Background);
     contentDiv.style.backgroundColor = Background;
     contentDiv.style.color = Foreground;
