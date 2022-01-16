@@ -4,18 +4,108 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="popup.css">
     <title>Chrome Addon v3: popup</title>
-    <script src="./index.js"></script>
-    <script type="module" src="../Theme/rotateFunc.js"></script>
-    <script type="module"src="../Theme/initTheme.js"></script>
-    <script type="module"src="../Theme/Changer.js"></script>
-    <script src="../Theme/black.js"></script>
+    <script src="index.js"></script>
+    <script src="colorPicker.js"></script>
+    <script src="toggleAction.js"></script>
+    <script src="themeSelect.js"></script>
+    <script src="../Theme/Changer.js"></script>
     <script src="../Theme/white.js"></script>
 </head>
 <body>
-    <label class="dark-mode-button"> 
-        <input type="checkbox"/> 
-        <span class="onoff-switch" ></span> 
-        <button>aaa</button>
-    </label>
+
+    <nav class="menu">
+  <ol>
+    <li class="menu-item"><a href="#0">Custom Theme</a></li>
+    <li class="menu-item"><a href="#0">Docs</a></li>
+    <li class="menu-item">
+      <a href="#0">Color</a>
+      <ol class="sub-menu">
+        
+        <li class="menu-item">
+          <a href="#0">
+            <input type="color" class="Background" value="#282a36">
+            <span> BackGround </span>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="#0">
+            <input type="color" class="Background2" value="#44475a">
+            <span> BackGround2 </span>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="#0">
+            <input type="color" class="Foreground" value="#f8f8f2">
+            <span> ForeGround</span>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="#0">
+            <input type="color" class="Accent" value="#ff89c7">
+            <span> Accent </span>
+          </a>
+        </li>
+
+        <li class="menu-item">
+          <a href="#0">
+            <input type="color" class="Accent2" value="#bd93f9">
+            <span> Accent2 </span>
+          </a>
+        </li>
+
+      </ol>
+    </li>
+    <li  class="menu-item " value="">
+      <a href="#0">code Theme</a>
+      <ol id="codeTheme" class="sub-menu">
+        <li class="menu-item" id='monokai' >
+          <a href="#0">
+            <span> MonoKai </span>
+          </a>
+        </li>
+
+        <li class="menu-item" id='icecoder'>
+          <a href="#0">
+            <span> IceCorder </span>
+          </a>
+        </li>
+
+        <li class="menu-item" id='dracula' >
+          <a href="#0">
+            <span> Dracula </span>
+          </a>
+        </li>
+
+        <li class="menu-item" id='material'>
+          <a href="#0">
+            <span> Material </span>
+          </a>
+        </li>
+
+        <li class="menu-item" id='nord'>
+          <a href="#0">
+            <span> nord </span>
+          </a>
+        </li>
+
+      </ol>
+    </li>
+    <li class="menu-item">
+      <a href="#0">
+        <div>Apply</div>
+        <div class="onffDiv">
+          <label class="dark-mode-button"> 
+            <input class="themeSwitch" type="checkbox"/> 
+              <span class="onoff-switch" > </span>
+          </label>
+        </div>
+      </a>
+    </li>
+  </ol>
+</nav>
+
 </body>
 </html>

@@ -1,8 +1,245 @@
+@font-face {
+  font-family: 'Varela Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/varelaround/v13/w8gdH283Tvk__Lua32TysjIfp8uK.ttf)
+    format('truetype');
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --accent-color: #45494e;
+  --gradient-color: #fbfbfb;
+}
+a:focus {
+  outline: none;
+  position: relative;
+}
+a:focus:after {
+  width: 50px;
+}
+a:after {
+  content: '';
+  background: #fbfbfb;
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+  height: 3px;
+  width: 0;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+}
 body {
-  width: 100%;
-  height: 100%;
+  background: #45494e;
+  font-family: 'Varela Round', Nunito, Montserrat, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+}
+.menu {
+  margin: 15px;
+}
+.menu > ol {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+}
+.menu > ol > li {
+  background: #3c3c3c;
+  border-left: 5px solid var(--gradient-color);
+  margin-bottom: 1px;
+  position: relative;
+  transition: 0.5s;
+}
+.menu > ol > li:nth-child(1) {
+  --accent-color: #fda085;
+  --gradient-color: #f6d365;
+}
+.menu > ol > li:nth-child(2) {
+  --accent-color: #bff098;
+  --gradient-color: #6fd6ff;
+}
+.menu > ol > li:nth-child(3) {
+  --accent-color: #ea8d8d;
+  --gradient-color: #a890fe;
+}
+.menu > ol > li:nth-child(4) {
+  --accent-color: #d8b5ff;
+  --gradient-color: #1eae98;
+}
+.menu > ol > li:nth-child(5) {
+  --accent-color: #c6ea8d;
+  --gradient-color: #fe90af;
+}
+.menu > ol > li a {
+  color: #fbfbfb;
+  display: block;
+  padding: 15px;
+  position: relative;
+  text-decoration: none;
+  z-index: 1;
+}
+.menu > ol > li a:not(:last-child):before {
+  content: '\f078';
+  font-family: fontAwesome;
+  font-size: 1rem;
+  line-height: 50px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 0.5s;
+}
+.menu > ol > li:focus,
+.menu > ol > li:focus-within,
+.menu > ol > li:hover {
+  z-index: 100;
+}
+.menu > ol > li:focus:after,
+.menu > ol > li:focus-within:after,
+.menu > ol > li:hover:after {
+  max-width: 800px;
+}
+.menu > ol > li:focus .sub-menu,
+.menu > ol > li:focus-within .sub-menu {
+  max-height: 500px;
+}
+.menu > ol > li:focus a:before,
+.menu > ol > li:focus-within a:before {
+  transform: rotate(-180deg);
+}
+.menu > ol > li:after {
+  background: #3c3c3c;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: 0.5s;
+  max-width: 0;
+  overflow: hidden;
+}
+.menu > ol .sub-menu {
+  border-left: 1px solid #fbfbfb;
+  margin-left: 22.5px;
+  list-style: none;
+  max-height: 0px;
+  overflow: hidden;
+  padding-left: 7.5px;
+  position: relative;
+  transition: 0.5s;
+  z-index: 1;
+}
+.menu > ol .sub-menu li {
+  font-size: 1rem;
+}
+.menu > ol .sub-menu li:hover,
+.menu > ol .sub-menu li a:focus {
+  background: rgba(60, 60, 60, 0.3);
+}
+.menu > ol .sub-menu li a:after {
+  bottom: 5px;
+  height: 1px;
+}
+.menu > ol .sub-menu li a:hover:after,
+.menu > ol .sub-menu li a:focus:after {
+  width: 15px;
+}
+@media (min-width: 600px) {
+  a:focus,
+  a:hover {
+    position: relative;
+  }
+  a:focus:after,
+  a:hover:after {
+    width: 50px;
+  }
+  a:after {
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .menu {
+    margin: 0;
+    margin-top: 40vh;
+  }
+  .menu > ol {
+    display: block;
+    max-width: none;
+    text-align: center;
+  }
+  .menu > ol > li {
+    border-top: 5px solid var(--accent-color);
+    border-left: 0;
+    display: inline-block;
+    margin-left: -5px;
+    vertical-align: top;
+    width: 120px;
+  }
+  .menu > ol > li:hover:after,
+  .menu > ol > li:focus:after,
+  .menu > ol > li:focus-within:after {
+    background: linear-gradient(
+      to bottom,
+      var(--accent-color),
+      var(--gradient-color)
+    );
+    border-radius: 3px;
+    top: -15px;
+    bottom: -15px;
+    left: -15px;
+    right: -15px;
+  }
+  .menu > ol > li:hover .sub-menu,
+  .menu > ol > li:focus .sub-menu,
+  .menu > ol > li:focus-within .sub-menu {
+    max-height: 750px;
+  }
+  .menu > ol > li a:not(:last-child):before {
+    right: 12.5px;
+  }
+  .menu > ol > li:hover a:before {
+    transform: rotate(-180deg);
+  }
+  .menu > ol .sub-menu {
+    border-left: 0;
+    margin: 15px -15px -15px;
+    padding-left: 0;
+  }
+}
+@media (min-width: 775px) {
+  .menu > ol > li {
+    width: 150px;
+  }
+  .menu > ol > li a:not(:last-child):before {
+    right: 25px;
+  }
 }
 
+body {
+  width: 300px;
+}
+input {
+  margin-right: 20px;
+}
+span {
+  color: #fbfbfb;
+  font-size: 1rem;
+}
+.menu-item > a {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-item > a > div {
+  width: 100%;
+  margin-right: 20px;
+  margin-top: 13px;
+}
 .dark-mode-button {
   position: relative;
   display: block;
@@ -16,13 +253,15 @@ body {
 }
 .dark-mode-button .onoff-switch {
   position: absolute;
+
   cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   height: 12px;
-  background-color: #fff;
+  width: 50vw;
+  background-color: #fbfbfb;
   box-shadow: 1px 1px 3px #eaeaea, -1px -1px 3px #eaeaea;
   border-radius: 20px;
   -webkit-transition: 0.4s;
@@ -32,8 +271,8 @@ body {
   position: absolute;
   content: '';
   height: 22px;
-  width: 22px;
-  left: 4px;
+  width: 40px;
+  left: 10px;
   top: -5px;
   background-image: url('./img/sun.png');
   background-size: 15px;
@@ -53,7 +292,61 @@ body {
   background-image: url('./img/moon.png');
   background-color: #333;
   box-shadow: none;
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
+  -webkit-transform: translateX(60px);
+  -ms-transform: translateX(60px);
+  transform: translateX(60px);
+}
+
+.colorLabel {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.onffDiv {
+  margin-top: 20px;
+}
+
+.switch-label {
+  position: absolute;
+  right: 0;
+}
+
+.codeTheme {
+  width: 50px;
+  border: 2px solid black;
+}
+
+.themeSelect {
+  height: 30px;
+  width: 200px;
+  background: lightgray;
+  position: relative;
+}
+
+.item,
+.selected {
+  display: block;
+  height: 30px;
+  width: 100%;
+  position: relative;
+  background: gray;
+  transition: all 0.6s;
+  line-height: 30px;
+}
+.selected {
+  background: none;
+  display: block;
+}
+.item:hover {
+  background: lightgray;
+}
+.Drop {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30px;
+  background: tomato;
+  transition: all 0.4s;
+  transform: rotate(0deg);
 }

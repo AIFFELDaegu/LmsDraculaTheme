@@ -1,10 +1,28 @@
-function Default(Background, Background2, Foreground, accent, accent2, theme) {
+function defaultTheme(timeId) {
+  console.log(`here ${timeId}`);
+  clearInterval(timeId);
+  const rotateBackground = (target, color) => {
+    for (let i = 0; i < target.length; i++) {
+      target[i].style.backgroundColor = color;
+    }
+  };
+  const rotateColor = (target, color) => {
+    for (let i = 0; i < target.length; i++) {
+      target[i].style.color = color;
+    }
+  };
+  const rotateClassName = (target, newClassName) => {
+    for (let i = 0; i < target.length; i++) {
+      target[i].className = newClassName;
+    }
+  };
+
   const sideDiv = document.querySelectorAll('.lightBack');
-  rotateBackground(sideDiv, 'fff');
+  rotateBackground(sideDiv, '#fff');
 
   const contentDiv = document.querySelector('.stepMain__body');
   contentDiv.style.backgroundColor = '#fff';
-  contentDiv.style.color = '#fff';
+  contentDiv.style.color = '#000';
 
   const header = document.querySelector('.ant-layout-header');
   header.style.backgroundColor = '#fff';
@@ -28,46 +46,33 @@ function Default(Background, Background2, Foreground, accent, accent2, theme) {
   const codeMirrorKernelButton = document.querySelectorAll(
     '.aiffel-btn ,.aiffel-kernel-run-button'
   );
-  function repeat() {
-    rotateColor(blockquoteString, Foreground);
-    rotateColor(blockquoteLi, Foreground);
-    rotateColor(codeMirrorIcon, Foreground);
-    rotateClassName(codeMirror, `CodeMirror cm-s-${theme}`);
-    rotateColor(linkTag, Foreground);
-    rotateColor(contentLinkTag, accent);
-    rotateBackground(codeMirrorButtonBlock, Background);
-    contentDivHead.style.color = accent2;
-    remoteDiv.style.backgroundColor = Background;
+  rotateColor(blockquoteString, '#000');
+  rotateColor(blockquoteLi, '#000');
+  rotateColor(codeMirrorIcon, '#000');
+  rotateClassName(codeMirror, `CodeMirror cm-s-github-light`);
+  rotateColor(linkTag, '#5a7fff');
+  rotateColor(contentLinkTag, '#5a7fff');
+  rotateBackground(codeMirrorButtonBlock, '#fff');
+  contentDivHead.style.color = '#000';
+  remoteDiv.style.backgroundColor = '#fff';
 
-    for (let i = 0; i < nodeListIndex.length; i++) {
-      nodeListIndex[i].style.backgroundColor = Background;
-      nodeListIndex[i].style.setProperty('color', Foreground, 'important');
-    }
-
-    for (let i = 0; i < codeBackTick.length; i++) {
-      codeBackTick[i].style.backgroundColor = Background2;
-      codeBackTick[i].style.color = accent;
-      codeBackTick[i].style.borderRadius = '1rem';
-      codeBackTick[i].style.fontWeight = 'bold';
-    }
-
-    for (let i = 0; i < codeMirrorKernelButton.length; i++) {
-      codeMirrorKernelButton[i].style.setProperty(
-        'background-color',
-        Background2,
-        'important'
-      );
-
-      codeMirrorKernelButton[i].style.setProperty(
-        'color',
-        Foreground,
-        'important'
-      );
-    }
+  for (let i = 0; i < nodeListIndex.length; i++) {
+    nodeListIndex[i].style.backgroundColor = '#fff';
+    nodeListIndex[i].style.setProperty('color', '#000', 'important');
   }
 
-  repeat();
-  //배경색, 조금 옅은 배경색, 폰트색, 강조(핑크),강조(보라),code테마
+  for (let i = 0; i < codeBackTick.length; i++) {
+    codeBackTick[i].style.backgroundColor = '#f1f1f1';
+    codeBackTick[i].style.color = 'black';
+  }
 
-  return timerId;
+  for (let i = 0; i < codeMirrorKernelButton.length; i++) {
+    codeMirrorKernelButton[i].style.setProperty(
+      'background-color',
+      '#f1f1f1',
+      'important'
+    );
+
+    codeMirrorKernelButton[i].style.setProperty('color', '#000', 'important');
+  }
 }

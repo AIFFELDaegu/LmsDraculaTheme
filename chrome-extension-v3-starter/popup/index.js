@@ -1,72 +1,33 @@
-const timeId = { recv: -1 };
-window.onload = function () {
-  const toggleBtn = document.querySelector('input');
+window.onload = async () => {
+  codeThemechanger();
+  changeColor();
+  const toggleBtn = document.querySelector('.themeSwitch');
+
+  await chrome.storage.local.get(['switch'], (res) => {
+    toggleBtn.checked = res.switch;
+  });
+
   toggleBtn.onclick = function () {
+    const Background = document.querySelector('.Background').value;
+    const Background2 = document.querySelector('.Background2').value;
+    const Foreground = document.querySelector('.Foreground').value;
+    const Accent = document.querySelector('.Accent').value;
+    const Accent2 = document.querySelector('.Accent2').value;
+    const codeMirrorTheme = getSelectedTheme();
+    const theme = [
+      Background,
+      Background2,
+      Foreground,
+      Accent,
+      Accent2,
+      codeMirrorTheme,
+    ];
     if (toggleBtn.checked == true) {
-      const theme = [
-        '#282a36',
-        '#44475a',
-        '#f8f8f2',
-        '#ff79c6',
-        '#bd93f9',
-        'monokai',
-      ];
-      toggleBlackTheme(theme);
+      toggleAction(theme, true);
+      chrome.storage.local.set({ switch: true });
     } else {
-      clearInterval(timeId.recv);
-      if (timeId.recv !== -1) {
-      }
-      console.log('white 테마');
+      toggleAction(timeId.recv, false);
+      chrome.storage.local.set({ switch: false });
     }
   };
 };
-
-const toggleBlackTheme = (theme) =>
-  chrome.tabs.query(
-    { active: true, currentWindow: true },
-    async function (tabs) {
-      try {
-        var currTab = tabs[0];
-        if (currTab) {
-          chrome.scripting.executeScript(
-            {
-              target: { tabId: currTab.id },
-              func: Changer,
-              args: theme,
-            },
-            (injectionResults) => {
-              timeId.recv = injectionResults[0].result;
-              console.log(injectionResults[0].result);
-            }
-          );
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
-  );
-
-const toggleWhiteTheme = (theme) =>
-  chrome.tabs.query(
-    { active: true, currentWindow: true },
-    async function (tabs) {
-      try {
-        var currTab = tabs[0];
-        if (currTab) {
-          chrome.scripting.executeScript(
-            {
-              target: { tabId: currTab.id },
-              func: Changer,
-              args: theme,
-            },
-            (injectionResults) => {
-              timeId.recv = injectionResults[0].result;
-              console.log(injectionResults[0].result);
-            }
-          );
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    }
-  );
