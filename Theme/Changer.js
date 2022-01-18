@@ -31,6 +31,7 @@ function Changer(Background, Background2, Foreground, accent, accent2, theme) {
   header.style.backgroundColor = Background;
 
   const timerId = setInterval(() => {
+    const tables = document.querySelectorAll('table');
     const codeMirrorIcon = document.querySelectorAll('.kernel-icon');
     const contentDivHead = document.querySelector('h1');
     const linkTag = document.querySelectorAll('.setpMain_content a');
@@ -84,6 +85,7 @@ function Changer(Background, Background2, Foreground, accent, accent2, theme) {
         'important'
       );
     }
+    if (tables.length !== 0) rotateColor(tables, Background);
   }, 500);
   return timerId;
 }
