@@ -26,8 +26,7 @@ function Changer(Background, Background2, Foreground, accent, accent2, theme) {
   contentDiv.style.backgroundColor = Background;
   contentDiv.style.color = Foreground;
 
-  const header = document.querySelector('.ant-layout-header');
-  header.style.backgroundColor = Background;
+  const header = document.querySelector('.aiffel-content__head');
   header.style.backgroundColor = Background;
 
   const timerId = setInterval(() => {
