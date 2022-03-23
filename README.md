@@ -1,6 +1,7 @@
 # LmsDraculaTheme Extension
 
-대꾸를 위한 LMS 어두운 테마!
+대꾸를 위한 LMS 어두운 테마!  
+[설치링크](https://chrome.google.com/webstore/detail/lms-themechanger/lmloiopjeaodjnaojfknfmlbhmbfojml?hl=ko&authuser=0)
 
 ## Dracula Theme
 
